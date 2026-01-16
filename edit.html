@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Lokasi</title>
+</head>
+<body>
+
+<h3>Edit Data Tanaman</h3>
+
+<form method="post">
+    Nama: <input name="nama" value="{{ tanaman.nama }}"><br><br>
+    Jenis: <input name="jenis" value="{{ tanaman.jenis }}"><br><br>
+    Latitude: <input name="lat" value="{{ tanaman.lat }}"><br><br>
+    Longitude: <input name="lng" value="{{ tanaman.lng }}"><br><br>
+    <button type="submit">Update</button>
+</form>
+
+<a href="/">Kembali</a>
+
+</body>
+</html>

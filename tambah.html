@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tambah Lokasi</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+<h3>Tambah Lokasi Tanaman</h3>
+
+<form method="post">
+    Nama: <input name="nama"><br><br>
+    Jenis: <input name="jenis"><br><br>
+    Latitude: <input id="lat" name="lat" readonly><br><br>
+    Longitude: <input id="lng" name="lng" readonly><br><br>
+    <button type="submit">Simpan</button>
+</form>
+
+<div id="map" style="height:300px;"></div>
+<a href="/">Kembali</a>
+
+<script>
+var map = L.map('map').setView([-6.2, 106.8], 12);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+var marker;
+map.on('click', function(e) {
+    if (marker) map.removeLayer(marker);
+    marker = L.marker(e.latlng).addTo(map);
+    document.getElementById('lat').value = e.latlng.lat;
+    document.getElementById('lng').value = e.latlng.lng;
+});
+</script>
+
+</body>
+</html>
